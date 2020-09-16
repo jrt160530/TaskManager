@@ -48,7 +48,7 @@ namespace TaskMasterTutorial
 
         private void taskCmdCreate_Click(object sender, EventArgs e)
         {
-            if ((taskCboStatus.SelectedItem != null && taskCboStatus.SelectedIndex != 0) 
+            if ((taskCboStatus.SelectedItem != null ) 
                 && txtTask.Text != String.Empty)
             {
                 var newTask = new Model.Task()
@@ -112,6 +112,16 @@ namespace TaskMasterTutorial
                 dateTimePicker1.Value = DateTime.Now;
                 taskCboStatus.Text = "Please Select...";
             }
+
+        }
+
+        private void txtTask_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

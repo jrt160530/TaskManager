@@ -55,6 +55,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(723, 206);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -166,6 +167,7 @@
             this.txtTask.Name = "txtTask";
             this.txtTask.Size = new System.Drawing.Size(290, 20);
             this.txtTask.TabIndex = 0;
+            this.txtTask.TextChanged += new System.EventHandler(this.txtTask_TextChanged);
             // 
             // Form1
             // 
