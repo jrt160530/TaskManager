@@ -53,6 +53,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 173);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(723, 206);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -71,7 +72,7 @@
             this.groupBox1.Controls.Add(this.taskCboStatus);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.txtTask);
-            this.groupBox1.Location = new System.Drawing.Point(15, 29);
+            this.groupBox1.Location = new System.Drawing.Point(16, 29);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(719, 126);
             this.groupBox1.TabIndex = 1;
@@ -147,7 +148,7 @@
             // taskCboStatus
             // 
             this.taskCboStatus.FormattingEnabled = true;
-            this.taskCboStatus.Location = new System.Drawing.Point(95, 41);
+            this.taskCboStatus.Location = new System.Drawing.Point(95, 43);
             this.taskCboStatus.Name = "taskCboStatus";
             this.taskCboStatus.Size = new System.Drawing.Size(157, 21);
             this.taskCboStatus.TabIndex = 2;

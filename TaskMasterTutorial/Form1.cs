@@ -71,47 +71,69 @@ namespace TaskMasterTutorial
         }
 
         private void taskCmdDelete_Click(object sender, EventArgs e)
-        {
-            var t = tmContext.Tasks.Find((int)dataGridView1.SelectedCells[0].Value);
+        {   
+                var t = tmContext.Tasks.Find((int)dataGridView1.SelectedCells[0].Value);
 
-            tmContext.Tasks.Remove(t);
-            tmContext.SaveChanges();
+                MessageBoxButtons mbb = MessageBoxButtons.YesNoCancel;
+                DialogResult r = MessageBox.Show("Delete Task \"" + t.Name.ToString() + "\"?/nClick Yes to proceed with Delete", "Confirm Delete", mbb);
+                if (r == DialogResult.Yes)
+                {
 
-            RefreshData();
+
+                    tmContext.Tasks.Remove(t);
+                    tmContext.SaveChanges();
+
+                    RefreshData();
+                }
+            
+            
+            
+           
+              
+            
+           
         }
 
         private void taskCmdUpdate_Click(object sender, EventArgs e)
         {
-            if(taskCmdUpdate.Text == "Update")
-            {
-                txtTask.Text = dataGridView1.SelectedCells[1].Value.ToString();
-                dateTimePicker1.Value = (DateTime)dataGridView1.SelectedCells[3].Value;
-                foreach (Status s in taskCboStatus.Items)
+            
+           
+                if (taskCmdUpdate.Text == "Update")
                 {
-                    if(s.Name == dataGridView1.SelectedCells[2].Value.ToString())
+
+                    txtTask.Text = dataGridView1.SelectedCells[1].Value.ToString();
+                    dateTimePicker1.Value = (DateTime)dataGridView1.SelectedCells[3].Value;
+                    foreach (Status s in taskCboStatus.Items)
                     {
-                        taskCboStatus.SelectedItem = s;
+                        if (s.Name == dataGridView1.SelectedCells[2].Value.ToString())
+                        {
+                            taskCboStatus.SelectedItem = s;
+                        }
                     }
+                    taskCmdUpdate.Text = "Save";
+
                 }
-               taskCmdUpdate.Text = "Save";
-                
-            }
-            else if (taskCmdUpdate.Text == "Save")
-            {
-               var t = tmContext.Tasks.Find((int)dataGridView1.SelectedCells[0].Value);
+                else if (taskCmdUpdate.Text == "Save")
+                {
+                    var t = tmContext.Tasks.Find((int)dataGridView1.SelectedCells[0].Value);
 
-                t.Name = txtTask.Text;
-                t.StatusId = (taskCboStatus.SelectedItem as Status).Id;
-                t.DueDate = dateTimePicker1.Value;
+                    t.Name = txtTask.Text;
+                    t.StatusId = (taskCboStatus.SelectedItem as Status).Id;
+                    t.DueDate = dateTimePicker1.Value;
 
-                tmContext.SaveChanges();
-                RefreshData();
+                    tmContext.SaveChanges();
+                    RefreshData();
 
-                taskCmdUpdate.Text = "Update";
-                txtTask.Text = string.Empty;
-                dateTimePicker1.Value = DateTime.Now;
-                taskCboStatus.Text = "Please Select...";
-            }
+
+                    taskCmdUpdate.Text = "Update";
+                    txtTask.Text = string.Empty;
+                    dateTimePicker1.Value = DateTime.Now;
+                    taskCboStatus.Text = "Please Select...";
+
+                MessageBox.Show("Update Successful");
+                }
+            
+           
 
         }
 
