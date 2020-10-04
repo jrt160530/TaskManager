@@ -1,2 +1,2 @@
 # TaskManager
-A windows forms application using entity frame work.
+A windows form application using entity frame work.
